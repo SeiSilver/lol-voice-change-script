@@ -24,15 +24,28 @@ while ($status -eq $false) {
     $status = Validate-Option
 
     switch ($choice) {
-        1 { Write-Output "1"
-        break  }
-        2 { Write-Output "2"
-        break }
-        3 {Write-Output "3"
-        break  }
-        4 { Write-Output "4"
-        break }
-        Default {Write-Output "Invalid"}
+        1 {
+            Write-Output "1"
+            break  
+        }
+        2 {
+            Write-Output "2"
+            break 
+        }
+        3 {
+            Write-Output "3"
+            break  
+        }
+        4 {
+            Write-Output "4"
+            break 
+        }
+        Default {
+            Clear-Host
+            Write-Output "Invalid choice pls try-again"
+            Write-Output ""
+            $status = $false
+        }
     }
 
 }
