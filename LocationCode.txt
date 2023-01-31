@@ -1,5 +1,6 @@
 vi_VN
 ja_JP
+en_US
 ko_KR
 zh_CN
 zh_TW
