@@ -1,5 +1,6 @@
 $status = $false
-
+$CLIENT_PATH = "{YourPath}/Riot Games/League of Legends/LeagueClient.exe"
+$LOCATION_CODE = "vi_VN"
 # =================================== Start Main Program ===================================
 
 function Validate-Option {
@@ -25,19 +26,19 @@ while ($status -eq $false) {
 
     switch ($choice) {
         1 {
-            Write-Output "1"
+            $LOCATION_CODE = "vi_VN"
             break  
         }
         2 {
-            Write-Output "2"
+            $LOCATION_CODE = "ja_JP"
             break 
         }
         3 {
-            Write-Output "3"
+            $LOCATION_CODE = "en_US"
             break  
         }
         4 {
-            Write-Output "4"
+            $LOCATION_CODE = Read-Host "Enter your Location Code here"
             break 
         }
         Default {
@@ -49,5 +50,9 @@ while ($status -eq $false) {
     }
 
 }
+
+Start-Process $CLIENT_PATH --locale=$LOCATION_CODE
+Write-Output "Change Language success"
+Write-Output "Please wait for the game to start"
 
 cmd /c pause
