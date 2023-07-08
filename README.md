@@ -13,4 +13,4 @@ This script uses Powershell language, so feel free to customize it if you like
 .\run.ps1
 ```
 - PS will close your client then you RiotClient will auto download the resource
-- When it finish downloaded, you can you the game normally
+- When it finish downloaded, you can run the game normally with your selected Language
