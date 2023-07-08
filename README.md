@@ -7,13 +7,10 @@ This script uses Powershell language, so feel free to customize it if you like
 
 ## How to use
 
-replace 'CLIENT_PATH' with your client path
-
-```
-$CLIENT_PATH = "{YourPath}/Riot Games/League of Legends/LeagueClient.exe"
-```
-
-then run the script with powershell by right click or run by cmd
+- Open Your LeagueClient.exe first
+- Then run the script
 ```
 .\run.ps1
 ```
+- PS will close your client then you RiotClient will auto download the resource
+- When it finish downloaded, you can you the game normally

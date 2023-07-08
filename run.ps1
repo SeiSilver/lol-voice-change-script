@@ -1,7 +1,21 @@
+# Get Client Path
+$leagueProcess = Get-Process -Name LeagueClient -ErrorAction SilentlyContinue
+$CLIENT_PATH = $null
+
+if ($leagueProcess) {
+    $clientPath = Split-Path -Path $leagueProcess.Path -Parent
+    $CLIENT_PATH = Join-Path -Path $clientPath -ChildPath "LeagueClient.exe"
+    Write-Output "League of Legends client path: $CLIENT_PATH"
+
+    $leagueProcess | Stop-Process -Force
+    Write-Output "Stop client!"
+}
+else {
+    Write-Output "League of Legends client is not running."
+}
+
 $status = $false
-$CLIENT_PATH = "{YourPath}/Riot Games/League of Legends/LeagueClient.exe"
 $LOCATION_CODE = "vi_VN"
-# =================================== Start Main Program ===================================
 
 function Validate-Option {
     if ($option -eq "YES" -or $option -eq "Y" ) {
@@ -12,7 +26,7 @@ function Validate-Option {
 }
 
 while ($status -eq $false) {
-    
+
     Write-Output "---------------------------------------------------------------------------"
     Write-Output "Options:"
     Write-Output "1. Change Language to Vietnamese"
@@ -27,19 +41,19 @@ while ($status -eq $false) {
     switch ($choice) {
         1 {
             $LOCATION_CODE = "vi_VN"
-            break  
+            break
         }
         2 {
             $LOCATION_CODE = "ja_JP"
-            break 
+            break
         }
         3 {
             $LOCATION_CODE = "en_US"
-            break  
+            break
         }
         4 {
             $LOCATION_CODE = Read-Host "Enter your Location Code here"
-            break 
+            break
         }
         Default {
             Clear-Host
